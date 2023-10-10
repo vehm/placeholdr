@@ -7,10 +7,14 @@ import {
 	RouterProvider,
 } from "react-router-dom";
 
+// Routes
+import Root from "./routes/root";
+
+// Route Object
 const routes: RouteObject[] = [
 	{
 		path: "/",
-		element: <>Root</>,
+		element: <Root />,
 		children: [
 			{
 				index: true,
@@ -20,6 +24,7 @@ const routes: RouteObject[] = [
 	},
 ];
 
+// Router
 const router = createBrowserRouter(routes, {
 	future: {
 		v7_normalizeFormMethod: true,
