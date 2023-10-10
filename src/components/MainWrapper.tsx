@@ -19,7 +19,7 @@ const MainWrapper = ({ children }: MainWrapperProps) => {
 			{!isHome && <LogoNav />}
 			<div
 				className={
-					"flex flex-col items-center gap-4 text-center container-lg"
+					"flex flex-col items-center gap-4 text-center container"
 				}
 			>
 				{children}
