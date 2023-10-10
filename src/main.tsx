@@ -9,8 +9,8 @@ import {
 } from "react-router-dom";
 
 // Routes
-import Root from "./routes/root";
-import Home from "./routes/home";
+import Root from "/@routes/root";
+import Home from "/@routes/home";
 
 // Route Object
 const routes: RouteObject[] = [
