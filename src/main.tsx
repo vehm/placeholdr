@@ -9,6 +9,7 @@ import {
 
 // Routes
 import Root from "./routes/root";
+import Home from "./routes/home";
 
 // Route Object
 const routes: RouteObject[] = [
@@ -18,7 +19,7 @@ const routes: RouteObject[] = [
 		children: [
 			{
 				index: true,
-				element: <>Home</>,
+				element: <Home />,
 			},
 		],
 	},
