@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+	body {
+		@apply bg-slate-400 text-gray-800;
+	}
+}
+
+.btn {
+	@apply p-4 rounded-lg;
+}
+
+.code {
+	@apply font-mono bg-slate-800 text-white text-start leading-normal p-4 rounded-lg overflow-x-auto;
+}
+
+.code .line {
+	@apply block;
+}
+
+.code .comment {
+	@apply text-slate-400;
+}

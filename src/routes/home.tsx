@@ -1,5 +1,14 @@
+import Page from "/@components/Page";
+import HomeView from "/@components/HomeView/HomeView";
+
 const Home = () => {
-	return <>Home</>;
+	const routeTitle = "Home | Placeholdr";
+
+	return (
+		<Page title={routeTitle}>
+			<HomeView />
+		</Page>
+	);
 };
 
 export default Home;
