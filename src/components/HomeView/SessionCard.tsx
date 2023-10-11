@@ -1,4 +1,4 @@
-import CopyCard from "./CopyCard";
+import CopyBox from "./CopyBox";
 import UrlBuilder from "./UrlBuilder";
 
 interface SessionCardProps {
@@ -10,7 +10,7 @@ const SessionCard = ({ sessionId, onReset }: SessionCardProps) => {
 	return (
 		<div className="flex flex-col gap-4 border rounded-lg p-4">
 			<span className="text-md font-semibold">Your Session ID:</span>
-			<CopyCard toCopy={sessionId} />
+			<CopyBox toCopy={sessionId} />
 			<span className="text-md font-semibold">URL Builder:</span>
 			<UrlBuilder sessionId={sessionId} />
 			<button

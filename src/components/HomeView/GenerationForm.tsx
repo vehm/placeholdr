@@ -9,7 +9,7 @@ const GenerationForm = () => {
 		prompt: "",
 	});
 	const [isLoading, setIsLoading] = useState(false);
-	const [sessionId, setSessionId] = useState<string | null>(null);
+	const [sessionId, setSessionId] = useState<string | null>("test");
 
 	const readyToGenerate = request.prompt.length > 0; // && request.engine;
 

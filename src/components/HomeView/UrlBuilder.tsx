@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import CopyCard from "./CopyCard";
+import CopyBox from "./CopyBox";
 
 interface UrlBuilderProps {
 	sessionId: string;
@@ -94,7 +94,7 @@ const UrlBuilder = ({ sessionId }: UrlBuilderProps) => {
 			</div>
 			<div className="flex-1 flex flex-col gap-2">
 				<span>Your URL</span>
-				<CopyCard toCopy={constructedUrl} />
+				<CopyBox toCopy={constructedUrl} />
 			</div>
 		</div>
 	);
