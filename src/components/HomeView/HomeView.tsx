@@ -6,7 +6,7 @@ const HomeView = () => {
 		<>
 			<div
 				className={
-					"flex flex-col gap-4 rounded-none xs:rounded-lg p-8 border bg-white"
+					"flex flex-col gap-4 rounded-none sm:rounded-lg p-8 border bg-white"
 				}
 			>
 				<h1 className={"font-bold text-4xl"}>Placeholdr</h1>
