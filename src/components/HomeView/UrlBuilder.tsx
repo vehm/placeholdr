@@ -14,8 +14,6 @@ const UrlBuilder = ({ sessionId }: UrlBuilderProps) => {
 		? dimensions.height
 		: "{height}";
 
-	console.log(constructedWidth, constructedHeight);
-
 	const constructedUrl = `https://placeholdr.ai/${sessionId}/${constructedWidth}/${constructedHeight}`;
 
 	return (
