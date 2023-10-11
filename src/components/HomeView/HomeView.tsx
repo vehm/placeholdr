@@ -1,3 +1,6 @@
+import CodeBlock from "./CodeBlock";
+import GenerationForm from "./GenerationForm";
+
 const HomeView = () => {
 	return (
 		<>
@@ -31,32 +34,16 @@ const HomeView = () => {
 					little thing I created to make my life easier, and I hope it
 					can make your life easier, too.&#10084;
 				</p>
-				<pre className="code">
-					<code>
-						<span className="line">
-							<span className="comment">
-								/* It's plug and play! {"(∩` ﾛ ´)⊃━｡･:*:･ﾟ’★"}
-							</span>
-						</span>
-						<span className="line">
-							{
-								"https://placeholdr.ai/{session_id}/{width}/{height}"
-							}
-						</span>
-					</code>
-				</pre>
 				<h3 className="font-bold underline underline-offset-8">
 					But How?&#129292;
 				</h3>
-				<textarea
-					className={"border rounded-lg p-4"}
-					placeholder="Describe your placeholder here..."
-					name=""
-					id=""
-					cols={30}
-					rows={5}
-				></textarea>
-				<button className={"btn"}>Submit</button>
+				<CodeBlock />
+				<p>
+					Give it a <b>prompt</b>, grab your <b>session id</b>, and
+					use the images in your project with a single URL. That
+					simple!&#128526;
+				</p>
+				<GenerationForm />
 				<span className="text-sm text-gray-600">
 					&#128293; Roast my code on{" "}
 					<a
