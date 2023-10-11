@@ -9,7 +9,7 @@
 }
 
 .btn {
-	@apply p-4 rounded-lg bg-pink-600 text-white;
+	@apply p-4 rounded-lg;
 }
 
 .code {
