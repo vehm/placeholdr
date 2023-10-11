@@ -8,27 +8,32 @@ const GenerationForm = () => {
 	const [request, setRequest] = useState<GenerateRequest>({
 		prompt: "",
 	});
-
 	const [isLoading, setIsLoading] = useState(false);
-
 	const [sessionId, setSessionId] = useState<string | null>(null);
 
 	const readyToGenerate = request.prompt.length > 0; // && request.engine;
 
 	const generate = async () => {
-		setIsLoading(true);
 		setSessionId(null);
 
-		// TODO: Add Fetch API Call Here
+		const api_base = import.meta.env.VITE_API_BASE;
 
-		setTimeout(() => {
+		const res = await fetch(`${api_base}/register`, {
+			method: "POST",
+			body: JSON.stringify(request),
+		});
+
+		if (!res.ok) {
 			setIsLoading(false);
-			setSessionId("12345-12345678-9012abcd-67890");
-			setRequest({ prompt: "" });
-		}, 10000);
+			throw new Error("Something went wrong!");
+		}
 
-		// setIsLoading(false);
-		// setRequest({ prompt: "" });
+		const data = await res.json();
+
+		const { sessionId } = data;
+		setSessionId(sessionId);
+
+		setRequest({ prompt: "" });
 	};
 
 	return (
@@ -53,7 +58,19 @@ const GenerationForm = () => {
 					<button
 						className="btn bg-pink-600 enabled:hover:bg-pink-700 disabled:bg-gray-500 text-white"
 						disabled={!readyToGenerate || isLoading}
-						onClick={generate}
+						onClick={async () => {
+							if (!readyToGenerate || isLoading) return;
+
+							setIsLoading(true);
+
+							try {
+								await generate();
+							} catch (err) {
+								console.error(err);
+							}
+
+							setIsLoading(false);
+						}}
 					>
 						{isLoading
 							? "Generating..."
