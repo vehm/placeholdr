@@ -5,10 +5,12 @@ const HomeView = () => {
 	return (
 		<>
 			<div
-				className={"flex flex-col gap-8 rounded-lg p-8 border bg-white"}
+				className={
+					"flex flex-col gap-4 rounded-none sm:rounded-lg p-8 border bg-white"
+				}
 			>
-				<h1 className={"font-bold text-5xl"}>Placeholdr</h1>
-				<h2 className="text-2xl flex gap-8 justify-center">
+				<h1 className={"font-bold text-4xl"}>Placeholdr</h1>
+				<h2 className="text-xl flex flex-wrap gap-4 justify-center">
 					<span>Prompt&#128394;</span>
 					<span>Generate&#9881;</span>
 					<span>Place&#129513;</span>
