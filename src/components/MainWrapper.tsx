@@ -11,17 +11,9 @@ const MainWrapper = ({ children }: MainWrapperProps) => {
 	const isHome = useMatch("/");
 
 	return (
-		<div
-			className={
-				"flex flex-col justify-center items-center min-h-screen p-4"
-			}
-		>
+		<div className={"flex items-center min-h-screen p-0 xs:p-4"}>
 			{!isHome && <LogoNav />}
-			<div
-				className={
-					"flex flex-col items-center gap-4 text-center container"
-				}
-			>
+			<div className={"text-center container min-w-0 mx-auto"}>
 				{children}
 			</div>
 		</div>
