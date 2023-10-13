@@ -12,6 +12,8 @@ const GenerationForm = () => {
 	const [isLoading, setIsLoading] = useState(false);
 	const [sessionId, setSessionId] = useState<string | null>(null);
 
+	const characterLimit = 2000;
+
 	const readyToGenerate = request.prompt.length > 0; // && request.engine;
 
 	const generate = async () => {
@@ -21,7 +23,11 @@ const GenerationForm = () => {
 
 		const res = await fetch(`${api_base}/register`, {
 			method: "POST",
-			body: JSON.stringify(request),
+			body: JSON.stringify({
+				...request,
+				// Limit prompt length, just in case
+				prompt: request.prompt.slice(0, characterLimit),
+			}),
 		});
 
 		if (!res.ok) {
@@ -47,7 +53,7 @@ const GenerationForm = () => {
 			) : (
 				<>
 					<LimitedTextarea
-						limit={2000}
+						limit={characterLimit}
 						value={request.prompt}
 						onChange={value =>
 							setRequest({ ...request, prompt: value })
