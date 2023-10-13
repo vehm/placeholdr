@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import SessionCard from "./SessionCard";
+import LimitedTextarea from "./LimitedTextarea";
 
 import { GenerateRequest } from "/@types/generate";
 
@@ -11,6 +12,8 @@ const GenerationForm = () => {
 	const [isLoading, setIsLoading] = useState(false);
 	const [sessionId, setSessionId] = useState<string | null>(null);
 
+	const characterLimit = 2000;
+
 	const readyToGenerate = request.prompt.length > 0; // && request.engine;
 
 	const generate = async () => {
@@ -20,7 +23,11 @@ const GenerationForm = () => {
 
 		const res = await fetch(`${api_base}/register`, {
 			method: "POST",
-			body: JSON.stringify(request),
+			body: JSON.stringify({
+				...request,
+				// Limit prompt length, just in case
+				prompt: request.prompt.slice(0, characterLimit),
+			}),
 		});
 
 		if (!res.ok) {
@@ -45,16 +52,14 @@ const GenerationForm = () => {
 				/>
 			) : (
 				<>
-					<textarea
-						className={"border rounded-lg p-4"}
-						placeholder="Describe the placeholder images of your wildest dreams..."
-						cols={30}
-						rows={5}
+					<LimitedTextarea
+						limit={characterLimit}
 						value={request.prompt}
-						onChange={e =>
-							setRequest({ ...request, prompt: e.target.value })
+						onChange={value =>
+							setRequest({ ...request, prompt: value })
 						}
-					></textarea>
+						placeholder="Describe the placeholder images of your wildest dreams..."
+					/>
 					<button
 						className="btn bg-pink-600 enabled:hover:bg-pink-700 disabled:bg-gray-500 text-white"
 						disabled={!readyToGenerate || isLoading}
